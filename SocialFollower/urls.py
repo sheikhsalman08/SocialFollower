@@ -16,6 +16,19 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+from Enter.views import RegisterUser
+from Home.views import Home
+from Order.views import FreeOrder, PremiumOrder
+
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', Home , name = 'home'),
+    url(r'^paypal/',include('paypal.standard.ipn.urls')),
+    url(r'^payment/',include('Payment.urls', namespace = 'payment' )),
+    url(r'^enter/',RegisterUser, name="enter"),
+    url(r'^freeorder/',FreeOrder.as_view(), name="freeorder"),
+    url(r'^PremiumOrder/',PremiumOrder.as_view(), name="premiumorder"),
+
+    url(r'^oauth/', include('social_django.urls', namespace='social')),
 ]
