@@ -19,8 +19,12 @@
                      <li class=""><a href="#instagram-section">instagram</a></li>
                      <li><a href="#facebook-section">facebook</a></li>
                      <li><a href="#youtube-section">youtube</a></li>
+                     {% if request.user.is_authenticated %}
+                        <li><a href="#">{{ request.user }}</a></li>
+                        <a href="{% url 'logout' %}">Log Out</a>
+                     {% else %}
                      <li><a href="{% url 'enter' %}">SignIn</a></li>
-                     <!-- <li><a href="login.html">SignIn</a></li> -->
+                     {% endif %}
                    </ul>
                  </div>
                </div>
@@ -105,7 +109,7 @@
                     <li id="free-list-li3"><p id="follower-text">No password required</p></li>
                     <li id="free-list-li3"><p id="follower-text">Fast delivery</p></li>
                     <li id="free-list-li3"><p id="follower-text">24/7 support</p></li>
-                    <li id="free-list-li3"><a href="file:///home/arman/Desktop/project/instagram/free.html" class="btn btn-info" role="button" id="get-free-now">Get Free Now</a></li>
+                    <li id="free-list-li3"><a href="{% url 'freeorder' %}" class="btn btn-info" role="button" id="get-free-now">Get Free Now</a></li>
                   </ul>
                 </div>
                 <div class="col-sm-4">
@@ -116,7 +120,7 @@
                     <li id="free-list-li4"><p id="follower-text">No password required</p></li>
                     <li id="free-list-li4"><p id="follower-text">Fast delivery</p></li>
                     <li id="free-list-li4"><p id="follower-text">24/7 support</p></li>
-                    <li id="free-list-li4"><a href="file:///home/arman/Desktop/project/instagram/buy.html" class="btn btn-info" role="button" id="get-free-now">Buy Follower</a></li>
+                    <li id="free-list-li4"><a href="{% url 'premiumorder' %}" class="btn btn-info" role="button" id="get-free-now">Buy Follower</a></li>
                   </ul>
                 </div>
                 <div class="col-sm-4">
@@ -153,7 +157,7 @@
                     <li id="free-list-li5"><p id="follower-text">No password required</p></li>
                     <li id="free-list-li5"><p id="follower-text">Fast delivery</p></li>
                     <li id="free-list-li5"><p id="follower-text">24/7 support</p></li>
-                    <li id="free-list-li5"><a href="file:///home/arman/Desktop/project/instagram/free.html" class="btn btn-info" role="button" id="get-free-now">Get Free Now</a></li>
+                    <li id="free-list-li5"><a href="{% url 'freeorder' %}" class="btn btn-info" role="button" id="get-free-now">Get Free Now</a></li>
                   </ul>
                 </div>
                 <div class="col-sm-4">
@@ -164,7 +168,7 @@
                     <li id="free-list-li6"><p id="follower-text">No password required</p></li>
                     <li id="free-list-li6"><p id="follower-text">Fast delivery</p></li>
                     <li id="free-list-li6"><p id="follower-text">24/7 support</p></li>
-                    <li id="free-list-li6"><a href="file:///home/arman/Desktop/project/instagram/buy.html" class="btn btn-info" role="button" id="get-free-now">Buy Subscribe</a></li>
+                    <li id="free-list-li6"><a href="{% url 'premiumorder' %}" class="btn btn-info" role="button" id="get-free-now">Buy Subscribe</a></li>
                   </ul>
                 </div>
                 <div class="col-sm-4">

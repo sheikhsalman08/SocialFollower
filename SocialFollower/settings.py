@@ -27,7 +27,7 @@ SECRET_KEY = '!n=bn(+5#ih%^rt^&c++%=^b+==xr#0geg#pz0oraodp*)s04e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -45,7 +45,8 @@ INSTALLED_APPS = (
 
     'Home',
     'Enter',
-    'Payment',
+    # 'Payment',
+    'payment',
     'Order',
 )
 

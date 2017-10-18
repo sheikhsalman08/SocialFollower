@@ -14,6 +14,7 @@ class Order(models.Model):
 	(u'1',u'instagram'),
 	(u'2',u'facebook'),
 	(u'3',u'youtube'),
+	# ('1','Instagram'),('2','facebook'),('3','youtube')
 	 )
 	type = models.CharField(max_length = 230,default = "Did Not Put",blank = True, null = True, choices = choices)
 	order_social_site_user_name = models.CharField(max_length = 30, blank = True, null = True,default = "")
@@ -23,6 +24,7 @@ class Order(models.Model):
 	
 	def __str__(self,*args,**kwargs):
 		return "By {} in {} at {}".format(self.by_user, self.type, self.time.date())
+
 
 		# return datetime.strptime('2014-2-2', '%Y-%m-%d').date()
 

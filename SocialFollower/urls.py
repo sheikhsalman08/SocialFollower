@@ -16,19 +16,23 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
-from Enter.views import RegisterUser
+from Enter.views import EnterUser
 from Home.views import Home
 from Order.views import FreeOrder, PremiumOrder
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import logout
 
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', Home , name = 'home'),
     url(r'^paypal/',include('paypal.standard.ipn.urls')),
-    url(r'^payment/',include('Payment.urls', namespace = 'payment' )),
-    url(r'^enter/',RegisterUser, name="enter"),
-    url(r'^freeorder/',FreeOrder.as_view(), name="freeorder"),
-    url(r'^PremiumOrder/',PremiumOrder.as_view(), name="premiumorder"),
+    # url(r'^payment/',include('Payment.urls', namespace = 'payment' )),
+    url(r'^payment/',include('payment.urls', namespace = 'payment' )),
+    url(r'^enter/',EnterUser, name="enter"),
+    url(r'^freeorder/',login_required(FreeOrder.as_view()), name="freeorder"),
+    url(r'^PremiumOrder/',login_required(PremiumOrder.as_view()), name="premiumorder"),
 
     url(r'^oauth/', include('social_django.urls', namespace='social')),
+    url(r'^logout/$',logout,{'next_page':'enter'}, name='logout'),
 ]
