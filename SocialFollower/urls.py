@@ -31,7 +31,11 @@ urlpatterns = [
     url(r'^payment/',include('payment.urls', namespace = 'payment' )),
     url(r'^enter/',EnterUser, name="enter"),
     url(r'^freeorder/',login_required(FreeOrder.as_view()), name="freeorder"),
+<<<<<<< HEAD
     url(r'^PremiumOrder',login_required(PremiumOrder.as_view()), name="premiumorder"),
+=======
+    url(r'^PremiumOrder/',login_required(PremiumOrder.as_view()), name="premiumorder"),
+>>>>>>> b775cee5636e160ad176f7e505afa8b1133d6724
 
     url(r'^oauth/', include('social_django.urls', namespace='social')),
     url(r'^logout/$',logout,{'next_page':'enter'}, name='logout'),

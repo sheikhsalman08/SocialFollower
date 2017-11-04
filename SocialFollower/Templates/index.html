@@ -1,6 +1,21 @@
-{% extends "base.html" %}
-{% load static %}
-{% block content %}
+<html>
+   <head>
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <title>SingIn</title>
+     <link rel="icon" href="images/instagram1.png" />
+     <link href="style/style.css" rel="stylesheet" >
+     <link href="style/login.css" rel="stylesheet" >
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+     <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans:600'>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <script src="js/main.js"></script>
+   </head>
    <body>
         <section id="main-head" class="main-head">
           <nav class="navbar navbar-inverse">
@@ -11,11 +26,7 @@
                      <span class="icon-bar"></span>
                      <span class="icon-bar"></span>
                    </button>
-<<<<<<< HEAD
-                   <a href="{% url 'home' %}" ><img src="{% static 'images/Instagram-logo.png' %}"  class="navbar-brand" id="logo"/></a>
-=======
-                   <img src="{% static 'images/Instagram-logo.png' %}"  class="navbar-brand" id="logo"/>
->>>>>>> b775cee5636e160ad176f7e505afa8b1133d6724
+                   <img src="images/Instagram-logo.png"  class="navbar-brand" id="logo"/>
                  </div>
                  <div class="collapse navbar-collapse" id="myNavbar">
                    <ul class="nav navbar-nav">
@@ -23,12 +34,7 @@
                      <li class=""><a href="#instagram-section">instagram</a></li>
                      <li><a href="#facebook-section">facebook</a></li>
                      <li><a href="#youtube-section">youtube</a></li>
-                     {% if request.user.is_authenticated %}
-                        <li><a href="#">{{ request.user }}</a></li>
-                        <a href="{% url 'logout' %}">Log Out</a>
-                     {% else %}
-                     <li><a href="{% url 'enter' %}">SignIn</a></li>
-                     {% endif %}
+                     <li><a href="login.html">SignIn</a></li>
                    </ul>
                  </div>
                </div>
@@ -42,19 +48,14 @@
                 </p>
             </section>
             <section id="button-group">
-<<<<<<< HEAD
-              <a href="{% url 'premiumorder' %}" ><button type="button" class="btn btn-danger btn-lg" id="buynow">Buy Followers Now</button></a>
-              <a href="{% url 'freeorder' %}" ><button type="button" class="btn btn-danger btn-lg" id="getfree">Get Free Followers</button></a>
-=======
               <button type="button" class="btn btn-danger btn-lg" id="buynow">Buy Followers Now</button>
               <button type="button" class="btn btn-danger btn-lg" id="getfree">Get Free Followers</button>
->>>>>>> b775cee5636e160ad176f7e505afa8b1133d6724
             </section>
         </section>
         <section id="instagram-section">
           <div class="container">
             <div class="row">
-              <p id="instagram">Get <img src="{% static 'images/instagram1.png' %}" id="instagram-pic"/>  Followers</p>
+              <p id="instagram">Get <img src="images/instagram1.png" id="instagram-pic"/>  Followers</p>
             </div>
           </div>
         </section>
@@ -70,7 +71,7 @@
                     <li id="free-list-li"><p id="follower-text">No password required</p></li>
                     <li id="free-list-li"><p id="follower-text">Fast delivery</p></li>
                     <li id="free-list-li"><p id="follower-text">24/7 support</p></li>
-                    <li id="free-list-li"><a href="{% url 'freeorder' %}" class="btn btn-info" role="button" id="get-free-now">Get Free Now</a></li>
+                    <li id="free-list-li"><a href="file:///home/arman/Desktop/project/instagram/free.html" class="btn btn-info" role="button" id="get-free-now">Get Free Now</a></li>
                   </ul>
                 </div>
                 <div class="col-sm-4">
@@ -81,7 +82,7 @@
                     <li id="free-list-li2"><p id="follower-text">No password required</p></li>
                     <li id="free-list-li2"><p id="follower-text">Fast delivery</p></li>
                     <li id="free-list-li2"><p id="follower-text">24/7 support</p></li>
-                    <li id="free-list-li2"><a href="{% url 'premiumorder' %}" class="btn btn-info" role="button" id="get-free-now">Buy Follower</a></li>
+                    <li id="free-list-li2"><a href="file:///home/arman/Desktop/project/instagram/buy.html" class="btn btn-info" role="button" id="get-free-now">Buy Follower</a></li>
                   </ul>
                 </div>
                 <div class="col-sm-4">
@@ -102,7 +103,7 @@
         <section id="facebook-section">
           <div class="container">
             <div class="row">
-              <p id="facebook">Get <img src="{% static 'images/facebook.png' %}" id="facebook-pic"/>  Followers</p>
+              <p id="facebook">Get <img src="images/facebook.png" id="facebook-pic"/>  Followers</p>
             </div>
           </div>
         </section>
@@ -118,7 +119,7 @@
                     <li id="free-list-li3"><p id="follower-text">No password required</p></li>
                     <li id="free-list-li3"><p id="follower-text">Fast delivery</p></li>
                     <li id="free-list-li3"><p id="follower-text">24/7 support</p></li>
-                    <li id="free-list-li3"><a href="{% url 'freeorder' %}" class="btn btn-info" role="button" id="get-free-now">Get Free Now</a></li>
+                    <li id="free-list-li3"><a href="file:///home/arman/Desktop/project/instagram/free.html" class="btn btn-info" role="button" id="get-free-now">Get Free Now</a></li>
                   </ul>
                 </div>
                 <div class="col-sm-4">
@@ -129,7 +130,7 @@
                     <li id="free-list-li4"><p id="follower-text">No password required</p></li>
                     <li id="free-list-li4"><p id="follower-text">Fast delivery</p></li>
                     <li id="free-list-li4"><p id="follower-text">24/7 support</p></li>
-                    <li id="free-list-li4"><a href="{% url 'premiumorder' %}" class="btn btn-info" role="button" id="get-free-now">Buy Follower</a></li>
+                    <li id="free-list-li4"><a href="file:///home/arman/Desktop/project/instagram/buy.html" class="btn btn-info" role="button" id="get-free-now">Buy Follower</a></li>
                   </ul>
                 </div>
                 <div class="col-sm-4">
@@ -150,7 +151,7 @@
         <section id="youtube-section">
           <div class="container">
             <div class="row">
-              <p id="youtube">Get <img src="{% static 'images/youtube.png' %}" id="youtube-pic"/>  Subscribe</p>
+              <p id="youtube">Get <img src="images/youtube.png" id="youtube-pic"/>  Subscribe</p>
             </div>
           </div>
         </section>
@@ -166,7 +167,7 @@
                     <li id="free-list-li5"><p id="follower-text">No password required</p></li>
                     <li id="free-list-li5"><p id="follower-text">Fast delivery</p></li>
                     <li id="free-list-li5"><p id="follower-text">24/7 support</p></li>
-                    <li id="free-list-li5"><a href="{% url 'freeorder' %}" class="btn btn-info" role="button" id="get-free-now">Get Free Now</a></li>
+                    <li id="free-list-li5"><a href="file:///home/arman/Desktop/project/instagram/free.html" class="btn btn-info" role="button" id="get-free-now">Get Free Now</a></li>
                   </ul>
                 </div>
                 <div class="col-sm-4">
@@ -177,7 +178,7 @@
                     <li id="free-list-li6"><p id="follower-text">No password required</p></li>
                     <li id="free-list-li6"><p id="follower-text">Fast delivery</p></li>
                     <li id="free-list-li6"><p id="follower-text">24/7 support</p></li>
-                    <li id="free-list-li6"><a href="{% url 'premiumorder' %}" class="btn btn-info" role="button" id="get-free-now">Buy Subscribe</a></li>
+                    <li id="free-list-li6"><a href="file:///home/arman/Desktop/project/instagram/buy.html" class="btn btn-info" role="button" id="get-free-now">Buy Subscribe</a></li>
                   </ul>
                 </div>
                 <div class="col-sm-4">
@@ -200,7 +201,7 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="col-sm-2">
-                   <img src="{% static 'images/money.png' %}" id="money-pic"/>
+                   <img src="images/money.png" id="money-pic"/>
                 </div>
                 <div class="col-sm-8">
                    <p id="money-back-text">
@@ -213,10 +214,14 @@
                    </p>
                 </div>
                 <div class="col-sm-2">
-                  <img src="{% static 'images/paypal-logo.png' %}" id="paypal-logo"/>
+                  <img src="images/paypal-logo.png" id="paypal-logo"/>
                 </div>
               </div>
             </div>
           </div>
         </section>
-{% endblock %}
+        <section id="footer">
+          <p id="footer-text">Copyright 2017 - SheikhDeveloper | All Rights Reserved	</p>
+        </section>
+   </body>
+</html>

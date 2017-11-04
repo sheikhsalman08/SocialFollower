@@ -14,11 +14,18 @@ def payment_notification(sender, **kwargs):
     order_id = ipn_obj.item_name
     order = Order.objects.get(id = order_id)
     order.payment_status = True
+<<<<<<< HEAD
     print(ipn_obj.item_name)
     order.save()
 
 valid_ipn_received.connect(payment_notification)
 invalid_ipn_received.connect(payment_notification)
+=======
+    order.save()
+
+valid_ipn_received.connect(payment_notification)
+
+>>>>>>> b775cee5636e160ad176f7e505afa8b1133d6724
 
 
 

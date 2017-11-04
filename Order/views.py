@@ -10,9 +10,14 @@ from django.contrib import messages
 
 
 class FreeOrder(View):
+<<<<<<< HEAD
 
 	def get(self,request):
 		
+=======
+	
+	def get(self,request):
+>>>>>>> b775cee5636e160ad176f7e505afa8b1133d6724
 		orderForm = FreeOrderForm()
 		context = {
 			'FreeOrderForm': orderForm,

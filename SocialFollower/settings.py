@@ -30,7 +30,10 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> b775cee5636e160ad176f7e505afa8b1133d6724
 # Application definition
 
 INSTALLED_APPS = (
@@ -46,6 +49,10 @@ INSTALLED_APPS = (
 
     'Home',
     'Enter',
+<<<<<<< HEAD
+=======
+    # 'Payment',
+>>>>>>> b775cee5636e160ad176f7e505afa8b1133d6724
     'payment',
     'Order',
 )
@@ -89,7 +96,11 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
+<<<<<<< HEAD
 LOGIN_URL = 'enter'
+=======
+LOGIN_URL = 'home'
+>>>>>>> b775cee5636e160ad176f7e505afa8b1133d6724
 LOGOUT_URL = 'enter'
 LOGIN_REDIRECT_URL = 'home'
 
