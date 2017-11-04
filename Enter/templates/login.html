@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}    
+     <!-- end with body  -->
+    
+
+    <body>
+        <section id="login-head" class="main-head">
+          <nav class="navbar navbar-inverse">
+               <div class="container-fluid">
+                 <div class="navbar-header">
+                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                   </button>
+                   <!-- <img src="images/Instagram-logo.png"  class="navbar-brand" id="logo"/> -->
+                   <a href="{% url 'home' %}" ><img src="{% static 'images/Instagram-logo.png' %}"  class="navbar-brand" id="logo"/></a>
+                 </div>
+                 <div class="collapse navbar-collapse" id="myNavbar">
+                   <ul class="nav navbar-nav">
+                     <!-- <li class="active"><a href="{% static 'index.html'%}">Home</a></li> -->
+                     <!-- <li><a href="{% static 'login.html'%}">SignIn</a></li> -->
+                   </ul>
+                 </div>
+               </div>
+            </nav>
+        </section>
+{% if LogInUser.errors %}
+    {% for field in LogInUser %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in LogInUser.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}
+
+{% if RegisterUserForm.errors %}
+    {% for field in RegisterUserForm %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in RegisterUserForm.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}
+        <section id="login-from">
+          <div class="login-wrap">
+        	<div class="login-html">
+            <form method="post" action="#">
+            {% csrf_token %}
+            		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+            		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+            		<div class="login-form">
+            			<div class="sign-in-htm">
+            				<div class="group">
+            					<label for="user" class="label">UserName</label>
+            					<!-- <input id="email" type="email" class="input"> -->
+                      {{ LogInUser.username }}
+            				</div>
+            				<div class="group">
+            					<label for="pass" class="label">Password</label>
+            					<!-- <input id="pass" type="password" class="input" data-type="password"> -->
+                      {{ LogInUser.password }}
+            				</div>
+            				<!-- <div class="group">
+            					<input id="check" type="checkbox" class="check" checked>
+            					<label for="check"><span class="icon"></span> Keep me Signed in</label>
+            				</div> -->
+            				<div class="group">
+            					<input type="submit" class="button" value="Sign In" name="sign_in">
+            				</div>
+            </form>
+            				<div class="hr"></div>
+            				<div class="foot-lnk">
+                    <form action="{% url 'social:begin' 'facebook' %}">
+                      <button class="loginBtn loginBtn--facebook">
+                          Singup with Facebook
+                      </button>      
+                    </form>
+            				</div>
+            			</div>
+
+            <form method="post">
+            {% csrf_token %}
+            			<div class="sign-up-htm">
+                    <div class="group">
+                      <label for="pass" class="label">Chose a Username</label>
+                      <!-- <input id="pass" type="text" class="input"> -->
+                      {{RegisterUserForm.username}}
+                    </div>
+                    <div class="group">
+            					<label for="pass" class="label">Email Address</label>
+            					<!-- <input id="pass" type="email" class="input"> -->
+                      {{RegisterUserForm.email}}
+            				</div>
+                    <div class="group">
+                      <label for="pass" class="label">Repeat Email Address</label>
+                      <!-- <input id="pass" type="email" class="input"> -->
+                      {{RegisterUserForm.email2}}
+                    </div>
+            				<div class="group">
+            					<label for="pass" class="label">Password</label>
+                      <!-- <input id="pass" type="password" class="input" data-type="password"> -->
+                      {{RegisterUserForm.password}}
+            				</div>
+            				<div class="group">
+            					<label for="pass" class="label">Repeat Password</label>
+            					<!-- <input id="pass" type="password" class="input" data-type="password"> -->
+                      {{RegisterUserForm.password2}}
+            				</div>
+            				<div class="group">
+            					<input type="submit" class="button" value="Sign Up" name="sign_up">
+            				</div>
+            </form>
+            <form action="{% url 'social:begin' 'facebook' %}">
+                <button class="loginBtn loginBtn--facebook">
+                            Singup with Facebook
+                </button>      
+            </form>
+        				<div class="hr"></div>
+        				<div class="foot-lnk">
+                    
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+        </section>
+{% endblock %}        

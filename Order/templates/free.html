@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+   <body>
+        <section id="login-head" class="main-head">
+          <nav class="navbar navbar-inverse">
+               <div class="container-fluid">
+                 <div class="navbar-header">
+                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                   </button>
+                    <a href="{% url 'home' %}" ><img src="{% static 'images/Instagram-logo.png' %}"  class="navbar-brand" id="logo"/></a>
+                 </div>
+                 <div class="collapse navbar-collapse" id="myNavbar">
+                   <ul class="nav navbar-nav">
+                    <li class="active"><a href="{% url 'home' %}">Home</a></li>
+                    {% if request.user.is_authenticated %}
+                      <li><a href="#">{{ request.user }}</a></li>
+                      <a href="{% url 'logout' %}">Log Out</a>
+                    {% else %}
+                      <li><a href="{% url 'enter' %}">SignIn</a></li>
+                    {% endif %}
+                   </ul>
+                 </div>
+               </div>
+            </nav>
+        </section>
+        <section id="buyer">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12">
+                  <p id="id-information">Get Free Follower</p>
+                  <div class="col-sm-3">
+                  </div>
+                  <div class="col-sm-5">
+                    <ul id="buyer-list">
+                      <li id="radio-button-new">
+                        <ul>
+                            <li>
+                              <input type="radio" id="f-option" name="selector">
+                              <label for="f-option">Instagram</label>
+
+                              <div class="check"></div>
+                            </li>
+
+                            <li>
+                              <input type="radio" id="s-option" name="selector">
+                              <label for="s-option">Facebook</label>
+
+                              <div class="check"><div class="inside"></div></div>
+                            </li>
+
+                            <li>
+                              <input type="radio" id="t-option" name="selector">
+                              <label for="t-option">Youtube</label>
+
+                              <div class="check"><div class="inside"></div></div>
+                            </li>
+                        </ul>
+                      </li>
+                      <form method="post">
+                      {% csrf_token %}
+                          <li><span id="buyer-list-name">Name Of Social Site</span><br />
+                          
+                              {{ FreeOrderForm.type }}
+                          </li>
+                          <li><span id="buyer-list-name">Your User Id Of Social Site</span><br />
+                              {{ FreeOrderForm.order_social_site_user_name }}
+                          </li>
+                          <li><span id="buyer-list-name">Your Profile Url Of Social Site</span><br />
+                              {{ FreeOrderForm.order_social_site_url }}
+                          </li>
+                          <!-- {{ FreeOrderForm.by_user }} -->
+                          <input type="hidden" name="by_user" value="{{ CurrentUser }}"/>
+                          <input type="hidden" name="visibility_by_admin" value="1"/>
+
+
+                          <input type="submit" name="submit" />
+
+                          <li id="buyer-input-button"><a>Get Free Now</a></li>
+                      </form>
+                    </ul> 
+                  </div>
+                  <div class="col-sm-3">
+                  </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+{% if FreeOrderForm.errors %}
+    {% for field in FreeOrderForm %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in FreeOrderForm.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+    {% endblock %}
