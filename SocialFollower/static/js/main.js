@@ -1,1 +1,7 @@
-console.log("Hello");
+$(document).ready(function(){
+
+ new WOW().init();
+
+ console.log("Hello1 ");
+
+});

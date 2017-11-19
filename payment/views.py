@@ -19,7 +19,7 @@ def payment_done(request):
 def payment_canceled(request):
     return render(request, 'canceled.html')
 
-    
+
 @login_required
 def payment_process(request):
     # order_id = request.session.get('order_id')
@@ -27,23 +27,23 @@ def payment_process(request):
     current_user_id = request.user.id
     host = request.get_host()
     order= Order.objects.filter(by_user = current_user_id).last()
-<<<<<<< HEAD
+
     # print(order.id)
     # print(host)
-=======
+
     print(order.id)
->>>>>>> b775cee5636e160ad176f7e505afa8b1133d6724
+
 
     paypal_dict = {
         # 'business': settings.PAYPAL_RECEIVER_EMAIL,
         # 'amount': '%.2f' % order.get_total_cost().quantize(Decimal('.01')),
         # 'invoice': str(order.id),
-<<<<<<< HEAD
+
         'amount':"2",
         # 'item_name': str(order.id),
-=======
+
         'amount':1,
->>>>>>> b775cee5636e160ad176f7e505afa8b1133d6724
+
         'item_name': str(order.id),
         'currency_code': 'USD',
         'notify_url': 'http://{}{}'.format(host, reverse('paypal-ipn')),

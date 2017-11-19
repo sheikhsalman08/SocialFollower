@@ -1,10 +1,12 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 
 {% block title %}Pay using PayPal{% endblock %}
 
 {% block content %}
-<hr>
-    <h1>Pay using PayPal</h1>
-    {{ form.render }}
-<hr>
+<section id="paymnet-box">
+  <hr>
+      <p id="start-payment">Pay using PayPal</p>
+      {{ form.render }}
+  <hr>
+</section>
 {% endblock %}

@@ -1,0 +1,3 @@
+workon <name>
+python manage.py runserver
+

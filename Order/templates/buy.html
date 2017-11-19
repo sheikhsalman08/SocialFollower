@@ -11,19 +11,20 @@
                      <span class="icon-bar"></span>
                      <span class="icon-bar"></span>
                    </button>
-<<<<<<< HEAD
+
                 <a href="{% url 'home' %}" ><img src="{% static 'images/Instagram-logo.png' %}"  class="navbar-brand" id="logo"/></a>
 
-=======
-                   <img src="{% static 'images/Instagram-logo.png' %}"  class="navbar-brand" id="logo"/>
->>>>>>> b775cee5636e160ad176f7e505afa8b1133d6724
+
+
                  </div>
                  <div class="collapse navbar-collapse" id="myNavbar">
                    <ul class="nav navbar-nav">
                      <li class="active"><a href="{% url 'home' %}">Home</a></li>
                     {% if request.user.is_authenticated %}
                       <li><a href="#">{{ request.user }}</a></li>
-                      <a href="{% url 'logout' %}">Log Out</a>
+                      <li>
+                         <a href="{% url 'logout' %}">Log Out</a>
+                      </li>
                     {% else %}
                       <li><a href="{% url 'enter' %}">SignIn</a></li>
                     {% endif %}
@@ -36,17 +37,15 @@
           <div class="container">
             <div class="row">
               <div class="col-sm-12">
-                  <p id="id-information">Get Followers</p>
+                  <p id="id-information" class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".2s">Get Followers</p>
                   <div class="col-sm-3">
                   </div>
                   <div class="col-sm-5">
                     <ul id="buyer-list">
                       <li id="radio-button-new">
-<<<<<<< HEAD
-                  <!--       <ul>
-=======
-                        <ul>
->>>>>>> b775cee5636e160ad176f7e505afa8b1133d6724
+
+
+                        <!-- <ul>
                             <li>
                               <input type="radio" id="f-option" name="selector">
                               <label for="f-option">Instagram</label>
@@ -67,17 +66,17 @@
 
                               <div class="check"><div class="inside"></div></div>
                             </li>
-<<<<<<< HEAD
-                        </ul> -->
-=======
-                        </ul>
->>>>>>> b775cee5636e160ad176f7e505afa8b1133d6724
+
+                        </ul>  -->
+
+
+
                       </li>
                       <form method="post">
                       {% csrf_token %}
-                          <li><span id="buyer-list-name">Name Of Social Site</span><br />
+                          <li class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".4s"><span id="buyer-list-name">Name Of Social Site</span><br />
                             <select name="type" id="buyer-input">
-                              <!-- <option value="">---------</option> -->
+                              <!-- <option value=""></option> -->
 
                               <option value="1">instagram</option>
 
@@ -87,10 +86,10 @@
 
                             </select>
                           </li>
-                          <li><span id="buyer-list-name">Your User Id Of Social Site</span><br />
+                          <li class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".8s"><span id="buyer-list-name">Your User Id Of Social Site</span><br />
                               {{ PremiumOrderForm.order_social_site_user_name }}
                           </li>
-                          <li><span id="buyer-list-name">Your Profile Url Of Social Site</span><br />
+                          <li class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1.2s"><span id="buyer-list-name">Your Profile Url Of Social Site</span><br />
                               {{ PremiumOrderForm.order_social_site_url }}
                           </li>
                           <!-- {{ PremiumOrderForm.by_user }} -->
@@ -100,11 +99,11 @@
                           <input type="hidden" name="payment_status" value=""/>
 
 
-                          <input type="submit" name="submit" value="submit"/>
+                          <input type="submit" name="submit" value="submit" id="submitfree" class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1.6s"/>
 
                           <li id="buyer-input-button"><a>Get Now</a></li>
                       </form>
-                    </ul> 
+                    </ul>
                   </div>
                   <div class="col-sm-3">
                   </div>

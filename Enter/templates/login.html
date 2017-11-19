@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block content %}    
+{% block content %}
      <!-- end with body  -->
-    
+
 
     <body>
         <section id="login-head" class="main-head">
@@ -16,11 +16,11 @@
                      <span class="icon-bar"></span>
                    </button>
                    <!-- <img src="images/Instagram-logo.png"  class="navbar-brand" id="logo"/> -->
-<<<<<<< HEAD
+
                    <a href="{% url 'home' %}" ><img src="{% static 'images/Instagram-logo.png' %}"  class="navbar-brand" id="logo"/></a>
-=======
-                   <a href="{% url 'home' %}"><img src="{% static 'images/Instagram-logo.png' %}"  class="navbar-brand" id="logo"/></a>
->>>>>>> b775cee5636e160ad176f7e505afa8b1133d6724
+
+
+
                  </div>
                  <div class="collapse navbar-collapse" id="myNavbar">
                    <ul class="nav navbar-nav">
@@ -92,7 +92,7 @@
                     <form action="{% url 'social:begin' 'facebook' %}">
                       <button class="loginBtn loginBtn--facebook">
                           Singup with Facebook
-                      </button>      
+                      </button>
                     </form>
             				</div>
             			</div>
@@ -130,17 +130,17 @@
             				</div>
             </form>
             <form action="{% url 'social:begin' 'facebook' %}">
-                <button class="loginBtn loginBtn--facebook">
+                <button class="loginBtn loginBtn--facebook" id="singup-button">
                             Singup with Facebook
-                </button>      
+                </button>
             </form>
         				<div class="hr"></div>
         				<div class="foot-lnk">
-                    
+
         				</div>
         			</div>
         		</div>
         	</div>
         </div>
         </section>
-{% endblock %}        
+{% endblock %}
